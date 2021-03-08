@@ -31,10 +31,9 @@ func execute(cmdstr string) {
 }
 
 func main() {
-	execute("/usr/sbin/lsof -iTCP -sTCP:LISTEN")
+	execute("/usr/sbin/lsof -iTCP -sTCP:LISTEN -P")
 	execute("gcc --version")
 	execute("java -version")
 	execute("python3 --version")
 	execute("php --version")
-
 }
