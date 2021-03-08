@@ -15,7 +15,7 @@ func validateos() {
 	}
 }
 
-func execute(cmdstr string) {
+func execute(cmdstr string) string {
 
 	validateos()
 
@@ -23,17 +23,17 @@ func execute(cmdstr string) {
 	var cmd = cmdargs[0]                          // command
 	cmdargs = append(cmdargs[:0], cmdargs[1:]...) // argument array sans cmd
 	out, err := exec.Command(cmd, cmdargs...).CombinedOutput()
+	var output string
+
 	if err != nil {
-		fmt.Println(err)
+		output = err.Error()
+	} else {
+		output = string(out[:])
 	}
-	output := string(out[:])
-	fmt.Println(output)
+	return output
 }
 
 func main() {
-	execute("lsof -iTCP -sTCP:LISTEN -P")
-	execute("gcc --version")
-	execute("java -version")
-	execute("python3 --version")
-	execute("php --version")
+	gitver := execute("git --version")
+	fmt.Println(gitver)
 }
