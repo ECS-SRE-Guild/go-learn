@@ -35,7 +35,8 @@ func execute(cmdstr string) string {
 
 func main() {
 	gitver := execute("git --version")
-	fmt.Println(gitver)
+	verno := strings.Split(gitver, " ")[2]
+	fmt.Println(verno)
 
 	gcnf := execute("git config -l")
 
