@@ -1,6 +1,5 @@
 .idea/
 build/
-pymodule/
 vendor/
 *.code-workspace
 *.iml
