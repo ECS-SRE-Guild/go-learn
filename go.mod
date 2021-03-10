@@ -1,4 +1,4 @@
-module go-learn
+module bitbucket.org/gmgauthier_ecs/go-learn
 
 go 1.16
 
